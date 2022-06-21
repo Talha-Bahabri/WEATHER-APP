@@ -2,16 +2,20 @@ console.log(`this is a test`)
 
 
 
-doStuff()
-async function doStuff() {
-    const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=London&APPID=4af83e00a0a923177f45e85a281f0556`);
-    const jsonResponse =  await response.json();
-    console.log(jsonResponse)
-    console.log("First Timeout")
-  
-    const msg2 = await setTimeoutPromise(200)
-    console.log(msg2)
-    console.log("Second Timeout")
+getWeatherData()
+async function getWeatherData() {
+    try {
+        const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Riyadh&APPID=4af83e00a0a923177f45e85a281f0556`);
+        const jsonResponse =  await response.json();
+        console.log(jsonResponse)
+        console.log(`jsonResponse specfiic data`)
+        const speceficData = jsonResponse.data.main.feels_like;
+        console.log(speceficData)
+        
+    }
+    catch {
+        console.log(`error within the API`)
+    }
   }
 
   function setTimeoutPromise(delay) {
