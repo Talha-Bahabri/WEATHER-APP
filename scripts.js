@@ -4,18 +4,19 @@ console.log(`this is a test`)
 
 getWeatherData()
 async function getWeatherData() {
-    try {
-        const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=Riyadh&APPID=4af83e00a0a923177f45e85a281f0556`);
-        const jsonResponse =  await response.json();
-        console.log(jsonResponse)
-        console.log(`jsonResponse specfiic data`)
-        const speceficData = jsonResponse.data.main.feels_like;
-        console.log(speceficData)
+    // try {
+        const api_URL = `http://api.openweathermap.org/data/2.5/weather?q=Riyadh&APPID=4af83e00a0a923177f45e85a281f0556`
+        const response = await fetch(api_URL);
+        const data =  await response.json();
+        console.log(response)
+        console.log(data)
+        console.log(`jsonResponse specfiic data`) 
+        console.log(data.main.temp)
         
-    }
-    catch {
-        console.log(`error within the API`)
-    }
+    // }
+    // catch {
+    //     console.log(`error within the API`)
+    // }
   }
 
   function setTimeoutPromise(delay) {
