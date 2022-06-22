@@ -1,8 +1,10 @@
-td {
-    border: 1px solid black;
-    height: 100px;
-    width: 100px; 
-    }
+
+.upper_portion {
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  
+}
 
     .slot {
         font-size: 70px;
