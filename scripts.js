@@ -19,6 +19,14 @@ async function getWeatherData(location_Name) {
         console.log(`error within the API`)
     }
   }
+
+  console.log(changeFromKelvinToCelsius(318.23))
+  function changeFromKelvinToCelsius(temperature) {
+    console.log(`kelivn = ${temperature}`)
+    let celsius = temperature - 273.15;
+    console.log(`kelivn = ${celsius}`)
+    return celsius
+  }
  
 
 // let  = `London`; 
