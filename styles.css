@@ -1,8 +1,13 @@
 
 .upper_portion {
+  
+}
+.middle_portion {
   background-color: red;
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3,  50px);  
   
 }
 
