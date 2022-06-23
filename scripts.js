@@ -3,16 +3,20 @@ console.log(`this is a test`)
 
 
 getWeatherData("Riyadh")
+
 async function getWeatherData(location_Name) {
     try {
         const api_URL = `http://api.openweathermap.org/data/2.5/weather?q=${location_Name}&APPID=4af83e00a0a923177f45e85a281f0556`
         const response = await fetch(api_URL);
-        const data =  await response.json();
+        const weatherData =  await response.json();
         console.log(response)
-        console.log(data)
+        console.log(weatherData)
         console.log(`jsonResponse specfiic data`) 
-        console.log(data.main.temp)
-        console.log(data.name)
+        console.log(weatherData.main.temp)
+        console.log(weatherData.name)
+        console.log(weatherData.sys.country)
+
+        return 
         
     }
     catch {
@@ -27,22 +31,19 @@ async function getWeatherData(location_Name) {
     console.log(`kelivn = ${celsius}`)
     return celsius
   }
- 
+  
+  function getImage(weatherData) {
 
-// let  = `London`; 
-// async function getWeatherData(name) {
-//     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${name}&APPID=4af83e00a0a923177f45e85a281f0556`, {mode: 'cors'})
-    
-//     .then(function(response) {
-//         console.log(`number 1`)
-//       return response.json();
-//     })
-//     .then(function(response) {
-//         console.log(`number 2`) 
-//         img.src = response.data.images.original.url;
-//     })
-//     .catch(function() {
-//         console.log(`ERROR`)
-//     })
+    switch(weatherData.weather.main) {
+      case x:
+        // code block
+        break;
+      case y:
+        // code block
+        break;
+      default:
+        // code block
+    }
 
-// }
+
+  }
