@@ -11,11 +11,10 @@
   
 }
 
-    .slot {
-        font-size: 70px;
-        text-align: center;
-        
-    }
+.weather-img { 
+  height: 50px;
+  width: 50px;
+}
 
     
 

@@ -1,8 +1,7 @@
 console.log(`this is a test`)
 
 
-
-getWeatherData("Riyadh")
+getWeatherData("dammam")
 
 async function getWeatherData(location_Name) {
     try {
@@ -14,7 +13,10 @@ async function getWeatherData(location_Name) {
         console.log(`jsonResponse specfiic data`) 
         console.log(weatherData.main.temp)
         console.log(weatherData.name)
-        console.log(weatherData.sys.country)
+        console.log(weatherData.sys.country) 
+
+        let img1 = document.getElementById("today-img")
+        img1.src = getImage(weatherData)
 
         return 
         
@@ -30,20 +32,29 @@ async function getWeatherData(location_Name) {
     let celsius = temperature - 273.15;
     console.log(`kelivn = ${celsius}`)
     return celsius
-  }
-  
-  function getImage(weatherData) {
+  } 
 
-    switch(weatherData.weather.main) {
-      case x:
-        // code block
+
+
+  function getImage(weatherData) { 
+    //the weatherData.weather[0].main tells if the sky is clear,rainy or cloudy
+    switch(weatherData.weather[0].main) {
+      case `Clear`:
+        console.log(`clear`)
+        return imgSrc = "images/Sunny-icon.png"
         break;
-      case y:
-        // code block
+      case `Clouds`:
+        console.log(`cloudy`)
+        return imgSrc = "images/cloudy-icon.png"
+          break;
+      case `Rains`:
+        console.log(`rainy`)
+        return imgSrc = "images/rainy-icon.png"
         break;
       default:
-        // code block
+        
+        console.log(`default`) 
+        return imgSrc = "images/githubLogo.png"
     }
-
 
   }
