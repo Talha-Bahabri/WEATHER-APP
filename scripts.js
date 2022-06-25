@@ -26,8 +26,7 @@ async function getWeatherData(location_Name) {
         console.log(`error within the API`)
     }
   }
-
-  console.log(changeFromKelvinToCelsius(318.23))
+ 
   function changeFromKelvinToCelsius(temperature) {
     console.log(`kelivn = ${temperature}`)
     let celsius = temperature - 273.15;
@@ -64,8 +63,10 @@ async function getWeatherData(location_Name) {
     let averageTemp = document.getElementById("average-temp")
     let maxTemp = document.getElementById("max-temp")
     let minTemp = document.getElementById("min-temp")
-
-    averageTemp.textContent = `${weatherData.main.temp} C`
+    
+    averageTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp)} C`
+    maxTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp_max)} C`
+    minTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp_min)} C`
 
     
   }
