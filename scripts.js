@@ -1,5 +1,5 @@
-console.log(`this is a test`)
 
+// let weatherData = getWeatherData(location_Name);
 
 getWeatherData("dammam")
 
@@ -15,10 +15,11 @@ async function getWeatherData(location_Name) {
         console.log(weatherData.name)
         console.log(weatherData.sys.country) 
 
-        let img1 = document.getElementById("today-img")
+        let img1 = document.getElementById("average-img")
         img1.src = getImage(weatherData)
-
-        return 
+ 
+        assignData(weatherData)
+        return  
         
     }
     catch {
@@ -57,4 +58,14 @@ async function getWeatherData(location_Name) {
         return imgSrc = "images/githubLogo.png"
     }
 
+  }
+  function assignData(weatherData) {
+
+    let averageTemp = document.getElementById("average-temp")
+    let maxTemp = document.getElementById("max-temp")
+    let minTemp = document.getElementById("min-temp")
+
+    averageTemp.textContent = `${weatherData.main.temp} C`
+
+    
   }
