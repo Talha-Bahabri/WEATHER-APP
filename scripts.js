@@ -15,8 +15,7 @@ async function getWeatherData(location_Name) {
         console.log(weatherData.name)
         console.log(weatherData.sys.country) 
 
-        let img1 = document.getElementById("average-img")
-        img1.src = getImage(weatherData)
+
  
         assignData(weatherData)
         return  
@@ -58,15 +57,21 @@ async function getWeatherData(location_Name) {
     }
 
   }
-  function assignData(weatherData) {
+    function assignData(weatherData) {
 
     let averageTemp = document.getElementById("average-temp")
     let maxTemp = document.getElementById("max-temp")
     let minTemp = document.getElementById("min-temp")
     
-    averageTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp)} C`
-    maxTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp_max)} C`
-    minTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp_min)} C`
+    averageTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp).toFixed()}C`
+    maxTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp_max).toFixed()}C`
+    minTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp_min).toFixed()}C`
 
+    let imgaverage = document.getElementById("average-img")
+    imgaverage.src = getImage(weatherData)
+    let imgMax = document.getElementById("max-img")
+    imgMax.src = getImage(weatherData)
+    let imgMin = document.getElementById("min-img")
+    imgMin.src = getImage(weatherData)
     
   }
