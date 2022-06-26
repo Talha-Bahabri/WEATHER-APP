@@ -2,8 +2,7 @@
 .upper_portion {
   
 }
-.middle_portion {
-  background-color: red;
+.middle_portion { 
   display: grid;
 
   grid-template-columns: repeat(3, 1fr);
@@ -12,11 +11,14 @@
 }
 
 .weather-img { 
-  height: 50px;
-  width: 50px;
+  height: 100px;
+  width: 100px; 
 }
 
-.    
+.weather-p {
+  font-size: 40px ;
+  margin: 50px;
+}    
 
     .container {
       display: flex;

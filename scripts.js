@@ -1,11 +1,11 @@
 
 // let weatherData = getWeatherData(location_Name);
+let locationName = `Dammam`
+getWeatherData(`${locationName}`)
 
-getWeatherData("dammam")
-
-async function getWeatherData(location_Name) {
+async function getWeatherData(location) {
     try {
-        const api_URL = `http://api.openweathermap.org/data/2.5/weather?q=${location_Name}&APPID=4af83e00a0a923177f45e85a281f0556`
+        const api_URL = `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=4af83e00a0a923177f45e85a281f0556`
         const response = await fetch(api_URL);
         const weatherData =  await response.json();
         console.log(response)
@@ -67,11 +67,18 @@ async function getWeatherData(location_Name) {
     maxTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp_max).toFixed()}C`
     minTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp_min).toFixed()}C`
 
-    let imgaverage = document.getElementById("average-img")
-    imgaverage.src = getImage(weatherData)
+    let imgAverage = document.getElementById("average-img")
+    imgAverage.src = getImage(weatherData)
     let imgMax = document.getElementById("max-img")
     imgMax.src = getImage(weatherData)
     let imgMin = document.getElementById("min-img")
     imgMin.src = getImage(weatherData)
+
+    let locationNameHTML = document.getElementById("location-Name")
+    locationNameHTML.textContent = `${locationName}`
+    
+  }
+
+  function searchBox() {
     
   }
