@@ -1,7 +1,7 @@
 
 // let weatherData = getWeatherData(location_Name);
 let locationName = `Dammam`
-getWeatherData(`${locationName}`)
+searchBox()
 
 async function getWeatherData(location) {
     try {
@@ -67,7 +67,19 @@ async function getWeatherData(location) {
     locationNameHTML.textContent = `${locationName}`
     
   }
-
   function searchBox() {
     
+    let searchBox = document.getElementById("search-Box")
+    let searchButton = document.getElementById("search-button");
+
+    searchButton.addEventListener("click" , function (e) {
+
+      console.log(`searchButton pressed`)
+      console.log(`${searchBox.value}`); 
+ 
+      locationName = `${searchBox.value}` 
+      getWeatherData(`${locationName}`)
+
+  })
+
   }
