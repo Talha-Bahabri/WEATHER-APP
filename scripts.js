@@ -5,7 +5,7 @@ searchBox()
 
 async function getWeatherData(location) {
     try {
-        const api_URL = `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=4af83e00a0a923177f45e85a281f0556`
+        const api_URL = `https://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=4af83e00a0a923177f45e85a281f0556`
         const response = await fetch(api_URL);
         const weatherData =  await response.json();
         
