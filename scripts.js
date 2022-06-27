@@ -8,18 +8,8 @@ async function getWeatherData(location) {
         const api_URL = `http://api.openweathermap.org/data/2.5/weather?q=${location}&APPID=4af83e00a0a923177f45e85a281f0556`
         const response = await fetch(api_URL);
         const weatherData =  await response.json();
-        console.log(response)
-        console.log(weatherData)
-        console.log(`jsonResponse specfiic data`) 
-        console.log(weatherData.main.temp)
-        console.log(weatherData.name)
-        console.log(weatherData.sys.country) 
-
-
- 
-        assignData(weatherData)
-        return  
         
+        assignData(weatherData) 
     }
     catch {
         console.log(`error within the API`)
@@ -50,10 +40,9 @@ async function getWeatherData(location) {
         console.log(`rainy`)
         return imgSrc = "images/rainy-icon.png"
         break;
-      default:
-        
-        console.log(`default`) 
-        return imgSrc = "images/githubLogo.png"
+      default: 
+        console.log(`${weatherData.weather[0].main}`)
+        return imgSrc = "images/Sunny-icon.png"
     }
 
   }
@@ -63,9 +52,9 @@ async function getWeatherData(location) {
     let maxTemp = document.getElementById("max-temp")
     let minTemp = document.getElementById("min-temp")
     
-    averageTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp).toFixed()}C`
-    maxTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp_max).toFixed()}C`
-    minTemp.textContent = `${changeFromKelvinToCelsius(weatherData.main.temp_min).toFixed()}C`
+    averageTemp.textContent = `AVG:${changeFromKelvinToCelsius(weatherData.main.temp).toFixed()}C`
+    maxTemp.textContent = `Max:${changeFromKelvinToCelsius(weatherData.main.temp_max).toFixed()}C`
+    minTemp.textContent = `Min:${changeFromKelvinToCelsius(weatherData.main.temp_min).toFixed()}C`
 
     let imgAverage = document.getElementById("average-img")
     imgAverage.src = getImage(weatherData)
