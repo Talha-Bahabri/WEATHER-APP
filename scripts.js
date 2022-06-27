@@ -10,6 +10,7 @@ async function getWeatherData(location) {
         const weatherData =  await response.json();
         
         assignData(weatherData) 
+        
     }
     catch {
         console.log(`error within the API`)
@@ -74,8 +75,7 @@ async function getWeatherData(location) {
     searchButton.addEventListener("click" , function (e) {
         locationName = `${searchBox.value.toUpperCase()}` 
         getWeatherData(`${locationName}`)
-       
 
-  })
+  }) 
 
   }
