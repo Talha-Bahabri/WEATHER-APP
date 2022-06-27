@@ -35,8 +35,7 @@ async function getWeatherData(location) {
       case `Rains`: 
         return imgSrc = "images/rainy-icon.png"
         break;
-      default: 
-        console.log(`${weatherData.weather[0].main}`)
+      default:  
         return imgSrc = "images/Sunny-icon.png"
     }
 
@@ -62,7 +61,7 @@ async function getWeatherData(location) {
     locationNameHTML.textContent = `${locationName}`
     
   }
-  
+
   function searchBox() {
     
     let searchBox = document.getElementById("search-Box")
