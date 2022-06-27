@@ -1,6 +1,6 @@
-
-// let weatherData = getWeatherData(location_Name);
-let locationName = `Dammam`
+ 
+let locationName = `DAMMAM`
+getWeatherData(locationName)
 searchBox()
 
 async function getWeatherData(location) {
@@ -13,31 +13,26 @@ async function getWeatherData(location) {
     }
     catch {
         console.log(`error within the API`)
+        let locationNameHTML = document.getElementById("location-Name")
+        locationNameHTML.textContent = `error on fetching the data, need a vaild location`
     }
   }
  
-  function changeFromKelvinToCelsius(temperature) {
-    console.log(`kelivn = ${temperature}`)
-    let celsius = temperature - 273.15;
-    console.log(`kelivn = ${celsius}`)
+  function changeFromKelvinToCelsius(temperature) { 
+    let celsius = temperature - 273.15; 
     return celsius
   } 
-
-
 
   function getImage(weatherData) { 
     //the weatherData.weather[0].main tells if the sky is clear,rainy or cloudy
     switch(weatherData.weather[0].main) {
-      case `Clear`:
-        console.log(`clear`)
+      case `Clear`: 
         return imgSrc = "images/Sunny-icon.png"
         break;
-      case `Clouds`:
-        console.log(`cloudy`)
+      case `Clouds`: 
         return imgSrc = "images/cloudy-icon.png"
           break;
-      case `Rains`:
-        console.log(`rainy`)
+      case `Rains`: 
         return imgSrc = "images/rainy-icon.png"
         break;
       default: 
@@ -67,18 +62,16 @@ async function getWeatherData(location) {
     locationNameHTML.textContent = `${locationName}`
     
   }
+  
   function searchBox() {
     
     let searchBox = document.getElementById("search-Box")
     let searchButton = document.getElementById("search-button");
 
     searchButton.addEventListener("click" , function (e) {
-
-      console.log(`searchButton pressed`)
-      console.log(`${searchBox.value}`); 
- 
-      locationName = `${searchBox.value}` 
-      getWeatherData(`${locationName}`)
+        locationName = `${searchBox.value.toUpperCase()}` 
+        getWeatherData(`${locationName}`)
+       
 
   })
 
